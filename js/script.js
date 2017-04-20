@@ -25,17 +25,20 @@ window.onload = function() {
         areaForPaste.insertAdjacentHTML('beforeend', stringPerson);
       }
     }
-    function btn() {
-      var input = document.createElement('input');
-
-      edit.id = 'edit'
-      edit.type = 'button'
-      edit.value = 'random'
-
-      areaForPaste.appendChild(input);
-    }
-    btn();
   });
+  btnSrchOnline.onclick = function createButton() {
+      var input = document.createElement('input');
+            input.id = 'random'
+            input.type = 'button'
+            input.value = ' get random user'
+        areaForPaste.appendChild(input);
+
+      var getRandom = document.getElementById('random');
+
+      getRandom.onclick = function createButton() {
+          console.log(h2);
+      }
+}
   btnSrchTime.addEventListener("click", function (data) {
 
     var valueSrch = document.getElementById('valueSrchTime').value;
@@ -49,9 +52,4 @@ window.onload = function() {
       }
     }
   });
-
-
-
-
-
 };
