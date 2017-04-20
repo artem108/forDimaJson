@@ -2,6 +2,7 @@ window.onload = function() {
 
   var btnSrchOnline = document.getElementById('btnSrchOnline');
   var btnSrchTime = document.getElementById('btnSrchTime');
+  var areaForPaste = document.getElementById('areaForPaste')
   var context;
   var request = new XMLHttpRequest();
 
@@ -14,33 +15,43 @@ window.onload = function() {
     btnSrchOnline.addEventListener("click", function (data) {
 
     var valueSrch = document.getElementById('valueSrchOnline').value;
-    var areaForPaste = document.getElementById('areaForPaste')
+    var users = context.users;
 
-      for (var i = 0; i < context.length; i++) {
-          if (valueSrch.toLowerCase() === context.users[i].insidearena.toString()) {
-            var stringPerson = "";
-            stringPerson += "<h4>" + "user: " + context[i].user + "<br>" + "Time: " + context[i].timestamp + "<br>" + " Email:  " + context[i].email + "</h4>";
+    for(var i in users) {
+      if (valueSrch.toLowerCase() === users[i].insidearena.toString()) {
+        var stringPerson = "";
+        stringPerson += "<h4>" + " Email:  " + users[i].email + "</h4>";
 
-            areaForPaste.insertAdjacentHTML('beforeend', stringPerson);
-              }
-            }
-          });
+        areaForPaste.insertAdjacentHTML('beforeend', stringPerson);
+      }
+    }
+    function btn() {
+      var input = document.createElement('input');
 
-      btnSrchTime.addEventListener("click", function (data) {
+      edit.id = 'edit'
+      edit.type = 'button'
+      edit.value = 'random'
 
-          var valueSrch = document.getElementById('valueSrchTime').value;
-          var areaForPaste = document.getElementById('areaForPaste')
+      areaForPaste.appendChild(input);
+    }
+    btn();
+  });
+  btnSrchTime.addEventListener("click", function (data) {
 
-            for (var i = 0; i < context.length; i++) {
-              if (valueSrch.toString() === context[i].timestamp.toString()) {
-                var stringPerson = "";
-                stringPerson += "<h4>" + "user: " + context[i].user + "<br>" + "Time: " + context[i].timestamp + "<br>" + " Email:  " + context[i].email + "</h4>";
+    var valueSrch = document.getElementById('valueSrchTime').value;
+    var users = context.users;
+    for(var i in users) {
+      if (valueSrch.toLowerCase() === users[i].timestamp.toLowerCase()) {
+        var stringPerson = "";
+        stringPerson += "<h4>" + " Email:  " + users[i].email + "</h4>";
 
-                areaForPaste.insertAdjacentHTML('beforeend', stringPerson);
+        areaForPaste.insertAdjacentHTML('beforeend', stringPerson);
+      }
+    }
+  });
 
-              }
-            }
-          });
+
+
 
 
 };
