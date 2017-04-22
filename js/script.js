@@ -13,14 +13,13 @@ window.onload = function() {
     request.send();
 
     btnSrchOnline.addEventListener("click", function (data) {
-
+        createButton();
     var valueSrch = document.getElementById('valueSrchOnline').value;
     var users = context.users;
 
     for(var i in users) {
       if (valueSrch.toLowerCase() === users[i].insidearena.toString()) {
-        console.log(users[i].insidearena);
-        var stringPerson = "";
+
         areaForPaste.innerHTML += "<h4>" + " Email:  " + users[i].email + "</h4>";
       }
     }
@@ -28,30 +27,28 @@ window.onload = function() {
 
 
   btnSrchTime.addEventListener("click", function (data) {
-
+    createButton();
     var valueSrch = document.getElementById('valueSrchTime').value;
     var users = context.users;
     for(var i in users) {
       if (valueSrch.toLowerCase() === users[i].timestamp.toLowerCase()) {
-        var stringPerson = "";
-        stringPerson += "<h4>" + " Email:  " + users[i].email + "</h4>";
+        areaForPaste.innerHTML += "<h4>" + " Email:  " + users[i].email + "</h4>";
 
-        areaForPaste.insertAdjacentHTML('beforeend', stringPerson);
       }
     }
   });
-  //  function createButton() {
-  //   var input = document.createElement('input');
-  //   input.id = 'random'
-  //   input.type = 'button'
-  //   input.value = ' get random user'
-  //   areaForPaste.appendChild(input);
-  //
-  //   var getRandom = document.getElementById('random');
-  //
-  //   getRandom.onclick = function createButton() {
-  //     console.log();
-  //   }
-  // }
+   function createButton() {
+    var input = document.createElement('input');
+    input.id = 'random'
+    input.type = 'button'
+    input.value = ' get random user'
+   areaForPaste.appendChild(input);
+
+     var getRandom = document.getElementById('random');
+
+    getRandom.onclick = function createButton() {
+      console.log();
+   }
+ }
 
 };

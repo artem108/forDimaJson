@@ -20,13 +20,13 @@
 },
 "B711D8CC-FCA1-4E33-A37A-374D8F848A0C" : {
 "email" : "a@.com",
-"insideArena" : true,
+"insidearena" : true,
 "timestamp" : "2017-04-13T11:97:03.521Z",
 "useragent" : "Harwall Arena/0.0.0 iOS/10.3.1 iPhone 5s"
 },
 "BA69457D-5BEC-44AF-A8CD-23B8AA377643" : {
 "email" : "dima@gmail.com",
-"insideArena" : false,
+"insidearena" : false,
 "timestamp" : "2017-04-13T11:57:03.521Z",
 "useragent" : "Harwall Arena/0.0.0 iOS/10.3.1 iPhone 7"
 }
