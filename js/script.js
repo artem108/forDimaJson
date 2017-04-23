@@ -11,44 +11,69 @@ window.onload = function() {
       context = JSON.parse(request.responseText);
     };
     request.send();
-
     btnSrchOnline.addEventListener("click", function (data) {
         createButton();
-    var valueSrch = document.getElementById('valueSrchOnline').value;
-    var users = context.users;
+        var valueSrch = document.getElementById('valueSrchOnline').value;
+        var users = context.users;
 
-    for(var i in users) {
-      if (valueSrch.toLowerCase() === users[i].insidearena.toString()) {
+        for(var key in users) {
+            if (valueSrch.toLowerCase() === users[key].insidearena.toString()) {
 
-        areaForPaste.innerHTML += "<h4>" + " Email:  " + users[i].email + "</h4>";
+                areaForPaste.innerHTML += "<h4>" + " Email:  " + users[key].email + "</h4>";
+
+
+
+                var getRandom = document.getElementById('randomBtn')
+
+                var arr = new Array();
+                arr = users[key].email;
+                getRandom.onclick = function getRandomUser() {
+
+
+
+                  console.log(arr);
+
+
+                }
+              }
+
+            }
+          });
+
+
+
+    btnSrchTime.addEventListener("click", function (data) {
+      createButton();
+      var valueSrch = document.getElementById('valueSrchTime').value;
+      var users = context.users;
+      for(var key in users) {
+          if (valueSrch.toLowerCase() === users[key].timestamp.toLowerCase()) {
+
+              areaForPaste.innerHTML += "<h4>" + " Email:  " + users[key].email + "</h4>";
       }
     }
   });
 
-
-  btnSrchTime.addEventListener("click", function (data) {
-    createButton();
-    var valueSrch = document.getElementById('valueSrchTime').value;
-    var users = context.users;
-    for(var i in users) {
-      if (valueSrch.toLowerCase() === users[i].timestamp.toLowerCase()) {
-        areaForPaste.innerHTML += "<h4>" + " Email:  " + users[i].email + "</h4>";
-
-      }
-    }
-  });
    function createButton() {
     var input = document.createElement('input');
-    input.id = 'random'
+    input.id = 'randomBtn'
     input.type = 'button'
     input.value = ' get random user'
-   areaForPaste.appendChild(input);
+    areaForPaste.appendChild(input);
+  }
 
-     var getRandom = document.getElementById('random');
 
-    getRandom.onclick = function createButton() {
-      console.log();
-   }
- }
+
+
+
+
+
+
+
+
+
+
+
+
 
 };
