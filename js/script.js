@@ -19,16 +19,29 @@ window.onload = function() {
         var users = context.users;
 
         for(var key in users) {
+          var string = "";
             if (valueSrch.toLowerCase() === users[key].insidearena.toString()) {
-              areaForPaste.innerHTML += "<h4>" + " Email:  " + users[key].email + "</h4>";
-                  arr = users[key].email;
-                  var getRandom = document.getElementById('randomBtn')
-                  getRandom.onclick = function getRandomUser() {
+              string += "<h4>" + " Email:  " + users[key].email + "</h4>";
+            }
+            areaForPaste.insertAdjacentHTML('beforeend', string);
 
-                    console.log(arr);
-                  };
 
-              }
+
+
+
+
+              function getRandomUser() {
+                var rand = Math.floor(Math.random() * arr.length);
+                arr =   users.email;
+                console.log(arr[rand]);
+                  }
+
+
+              var getRandom = document.getElementById('randomBtn')
+              getRandom.onclick = function() {
+                getRandomUser();
+
+              };
             }
           });
     btnSrchTime.addEventListener("click", function (data) {
@@ -50,7 +63,7 @@ window.onload = function() {
     input.type = 'button'
     input.value = ' get random user'
     areaForPaste.appendChild(input);
-    
+
   }
 
 
